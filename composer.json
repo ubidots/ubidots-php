@@ -1,0 +1,16 @@
+{
+	"name": "ubidots/ubidots",
+	"description": "Api Client to connect to ubidots.com api version 1.6.",
+	"homepage": "http://github.com/ubidots/ubidots-php",
+	"license": "MIT",
+	"keywords": ["ubidots", "php", "api"],
+	"authors": [
+		{
+			"name": "Ubidots Team",
+			"homepage": "http://ubidots.com"
+		}
+	],
+	"require": {
+		"rmccue/requests": ">=1.0"
+	}
+}
