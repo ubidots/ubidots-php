@@ -8,6 +8,7 @@ define('BASE_URL', 'http://app.ubidots.com/api/v1.6/');
 class ServerBridge{
 	
 	private $token;
+	private $token_header;
     private $apikey;
     private $apikey_header;
 
@@ -29,8 +30,6 @@ class ServerBridge{
             
   	}
 
-
-
     private function get_token(){
     	$this->token = json_decode( $this->post_with_apikey('auth/token') )->{'token'};
     	$this->set_token_header();
@@ -49,9 +48,50 @@ class ServerBridge{
     }
 
     private function post_with_apikey($path){
-    	$headers = $this->apikey_header;
+    	$headers = $this->prepare_headers($this->apikey_header);
 		$request = Requests::post($this->base_url . $path, $headers);
 		return $request->body;
+    }
+
+    public function get($path){
+    	$headers = $this->prepare_headers($this->token_header);
+        $request = Requests::get($this->base_url . $path, $headers);
+        return $request->body;
+    }
+        
+    public function get_with_url($url){
+    	$headers = $this->prepare_headers($this->token_header);
+        $request = Requests::get($url, $headers);
+        return $request->body;
+    }
+
+    public function post($path, $data){
+    	$headers = $this->prepare_headers($this->token_header);
+    	$data = $this->prepare_data($data);
+        $request = Requests::post($this->base_url . $path, $headers, $data);
+        return $request->body;
+    }
+
+    public function delete($path){
+    	$headers = $this->prepare_headers($this->token_header);
+        $request = Requests::delete($this->base_url . $path, $headers);
+        return $request->body;
+    }
+
+    
+    private function prepare_headers($headers){
+    	return array_merge($headers, $this->get_custom_headers());
+    }
+
+    private function prepare_data($data){
+    	return $data;
+    }
+
+    private function get_custom_headers(){
+    	$headers = array(
+    		'content-type' => 'application/json'
+		);
+		return $headers;
     }
 
 
