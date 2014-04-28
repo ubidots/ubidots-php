@@ -31,7 +31,7 @@ class ServerBridge{
   	}
 
     private function get_token(){
-    	$this->token = json_decode( $this->post_with_apikey('auth/token') )->{'token'};
+    	$this->token = $this->post_with_apikey('auth/token')['token'];
     	$this->set_token_header();
     }
 
@@ -50,32 +50,32 @@ class ServerBridge{
     private function post_with_apikey($path){
     	$headers = $this->prepare_headers($this->apikey_header);
 		$request = Requests::post($this->base_url . $path, $headers);
-		return $request->body;
+		return json_decode($request->body, true);
     }
 
     public function get($path){
     	$headers = $this->prepare_headers($this->token_header);
         $request = Requests::get($this->base_url . $path, $headers);
-        return $request->body;
+        return json_decode($request->body, true);
     }
         
     public function get_with_url($url){
     	$headers = $this->prepare_headers($this->token_header);
         $request = Requests::get($url, $headers);
-        return $request->body;
+        return json_decode($request->body, true);
     }
 
     public function post($path, $data){
     	$headers = $this->prepare_headers($this->token_header);
     	$data = $this->prepare_data($data);
         $request = Requests::post($this->base_url . $path, $headers, $data);
-        return $request->body;
+        return json_decode($request->body, true);
     }
 
     public function delete($path){
     	$headers = $this->prepare_headers($this->token_header);
         $request = Requests::delete($this->base_url . $path, $headers);
-        return $request->body;
+        return json_decode($request->body, true);
     }
 
     
