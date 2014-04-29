@@ -1,4 +1,5 @@
 <?php
+
 namespace Ubidots;
 
 class ApiClient{
@@ -19,6 +20,18 @@ class ApiClient{
         $pag = new Paginator($this->bridge, $response, $endpoint);
         $infoList = new InfoList($pag, $numofdsources);
         return $this->transform_to_datasource_objects($infoList->items);
+    }
+
+    public function get_datasource($id = null){
+        $endpoint = "datasources/".$id;
+        $response = $this->bridge->get($endpoint);
+        return new Datasource($this->bridge, $response);
+    }
+
+    public function get_datasource($id = null){
+        $endpoint = "variables/".$id;
+        $response = $this->bridge->get($endpoint);
+        return new Variable($this->bridge, $response);
     }
 
      public function get_variables($numofvals="ALL"){
