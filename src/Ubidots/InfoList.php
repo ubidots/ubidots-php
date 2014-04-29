@@ -1,4 +1,5 @@
 <?php
+namespace Ubidots;
 
 class InfoList{
 

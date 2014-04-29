@@ -1,8 +1,10 @@
 <?php
-require_once "ApiObject.php";
-require_once "InfoList.php";
-require_once "Paginator.php";
-require_once "Variable.php";
+namespace Ubidots;
+
+// require_once "ApiObject.php";
+// require_once "InfoList.php";
+// require_once "Paginator.php";
+// require_once "Variable.php";
 
 class Datasource extends ApiObject{
 

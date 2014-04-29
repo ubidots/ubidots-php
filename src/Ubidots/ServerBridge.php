@@ -1,6 +1,7 @@
 <?php
+namespace Ubidots;
 
-require '../vendor/autoload.php';
+//require '../vendor/autoload.php';
 
 define('BASE_URL', 'http://app.ubidots.com/api/v1.6/'); 
 

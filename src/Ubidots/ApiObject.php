@@ -1,4 +1,5 @@
 <?php
+namespace Ubidots;
 
 abstract class ApiObject{
 
