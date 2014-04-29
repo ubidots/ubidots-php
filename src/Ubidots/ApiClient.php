@@ -1,13 +1,6 @@
 <?php
 namespace Ubidots;
 
-// require_once "Datasource.php";
-// require_once "InfoList.php";
-// require_once "ServerBridge.php";
-// require_once "Paginator.php";
-// require_once "InfoList.php";
-
-
 class ApiClient{
 
     public $bridge;

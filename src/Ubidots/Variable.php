@@ -1,12 +1,6 @@
 <?php
 namespace Ubidots;
 
-require_once "ApiClient.php";
-require_once "ApiObject.php";
-require_once "InfoList.php";
-require_once "Paginator.php";
-
-
 class Variable extends ApiObject{
 
     public $icon;
