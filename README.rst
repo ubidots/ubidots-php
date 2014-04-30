@@ -2,6 +2,8 @@
 Ubidots PHP API Client
 ===================================
 
+The Ubidots PHP API Client makes calls to the `Ubidots Api <http://things.ubidots.com/api>`_. 
+
 Installation
 ------------
 
