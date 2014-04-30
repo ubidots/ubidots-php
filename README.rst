@@ -34,7 +34,7 @@ Once you have your API key, you can connect to the API by creating an ApiClient 
 
 	require 'vendor/autoload.php';
 	
-	$api = new Ubidots\ApiClient($apikey="ffe22112fdd1c55f0f3969169f3d3f37b1ad0997");
+	$api = new Ubidots\ApiClient($apikey="7fj39fk3044045k89fbh34rsd9823jkfs8323");
 
 
 Now you have an instance of ApiClient ("api") which can be used to connect to the API service.
