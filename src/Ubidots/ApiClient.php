@@ -28,7 +28,7 @@ class ApiClient{
         return new Datasource($this->bridge, $response);
     }
 
-    public function get_datasource($id = null){
+    public function get_variable($id = null){
         $endpoint = "variables/".$id;
         $response = $this->bridge->get($endpoint);
         return new Variable($this->bridge, $response);
