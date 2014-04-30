@@ -57,7 +57,7 @@ class Variable extends ApiObject{
     public function get_datasource(){
         if(!$this->datasource){
             $api = new ApiClient(null, null, null, $bridge = $this->bridge);
-            $this->datasource = $api->get_datasource(null, $url = $this->raw_datasource["url"]);
+            $this->datasource = $api->get_datasource($id = $this->raw_datasource["id"]);
         }
         return $this->datasource;
     }

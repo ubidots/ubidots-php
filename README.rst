@@ -44,18 +44,18 @@ Retrieve the variable you'd like the value to be saved to:
 
 .. code-block:: php
     
-    $my_variable = $api->get_variable('56799cf1231b28459f976417')
+    $my_variable = $api->get_variable('56799cf1231b28459f976417');
 
 Given the instantiated variable, you can save a new value with the following line:
 
 .. code-block:: php
 
-    $new_value = $my_variable->save_value( array('value'=> 10) );
+    $new_value = $my_variable->save_value( array('value'=>10) );
 
 You can also specify a timestamp (optional):
 
 .. code-block:: php
 
-    $new_value = $my_variable->save_value( array('value'=> 10, 'timestamp'=> 1376061804407) );
+    $new_value = $my_variable->save_value( array('value'=>10, 'timestamp'=>1376061804407) );
 
 If no timestamp is specified, the API server will assign the current time to it. We think it's always better for you to specify the timestamp so the record reflects the exact time the value was captured, not the time it arrived to our servers.
