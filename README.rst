@@ -59,3 +59,29 @@ You can also specify a timestamp (optional):
     $new_value = $my_variable->save_value( array('value'=>10, 'timestamp'=>1376061804407) );
 
 If no timestamp is specified, the API server will assign the current time to it. We think it's always better for you to specify the timestamp so the record reflects the exact time the value was captured, not the time it arrived to our servers.
+
+Creating a DataSource
+----------------------
+
+As you might know by now, a data source represents a device or a virtual source.
+
+This line creates a new data source:
+
+.. code-block:: php
+    
+    $new_datasource = $api->create_datasource( array("name"=>"myNewDs", "tags"=>array("firstDs", "new"), "description"=>"any des") );
+
+The 'name' key is required, but the 'tags' and 'description' keys are optional. This new data source can be used to track different variables, so let's create one.
+
+
+Creating a Variable
+--------------------
+
+A variable is a time-series containing different values over time. Let's create one:
+
+
+.. code-block:: php
+    
+    $my_variable = $new_datasource->create_variable( array("name"=>"myNewVar", "unit"=>"Nw") );
+
+The 'name' and 'unit' keys are required.
