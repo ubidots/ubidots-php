@@ -89,13 +89,13 @@ The 'name' and 'unit' keys are required.
 Getting Values
 --------------
 
-To get the values of a variable, use the method get_values in an instance of the class Variable. This will return a list like object with an aditional attribute items_in_server that tells you how many values this variable has stored on the server.
+To get the values of a variable, use the method get_values in an instance of the class Variable. This will return a values array.
 
 If you only want the last N values call the method with the number of elements you want.
 
 .. code-block:: php
     
-    /**
+    /*
      * Getting all the values from the server. Note that this could result in a
      * lot of requests, and potentially violate your requests per second limit.
      */
@@ -108,7 +108,7 @@ If you only want the last N values call the method with the number of elements y
 Getting a group of Data sources
 --------------------------------
 
-If you want to get all your data sources you can a method on the ApiClient instance directly. This method return a Paginator object which you can use to iterate through all the items.
+If you want to get all your data sources you can a method on the ApiClient instance directly. This method return a objects Datasource array.
 
 .. code-block:: php
     
@@ -130,3 +130,26 @@ For example, if a data source has the id 51c99cfdf91b28459f976414, it can be ret
 .. code-block:: php
 
     $my_specific_datasource = $api->get_datasource('51c99cfdf91b28459f976414');
+
+Getting a group of  Variables from a Data source
+-------------------------------------------------
+
+With a data source. you can also retrieve some or all of its variables:
+
+.. code-block:: php
+
+    /* Get all variables */
+    $all_variables =  $my_datasource->get_variables();
+    
+    /* Get last 10 variables */
+    $some_variables =  $my_datasource->get_variables(10)
+
+
+Getting a specific Variable
+------------------------------
+
+As with data sources, you can use your variable's ID to retrieve the details about it:
+
+.. code-block:: php
+
+    $my_specific_variable = $api->get_variable('56799cf1231b28459f976417');
