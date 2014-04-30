@@ -85,3 +85,48 @@ A variable is a time-series containing different values over time. Let's create 
     $my_variable = $new_datasource->create_variable( array("name"=>"myNewVar", "unit"=>"Nw") );
 
 The 'name' and 'unit' keys are required.
+
+Getting Values
+--------------
+
+To get the values of a variable, use the method get_values in an instance of the class Variable. This will return a list like object with an aditional attribute items_in_server that tells you how many values this variable has stored on the server.
+
+If you only want the last N values call the method with the number of elements you want.
+
+.. code-block:: php
+    
+    /**
+     * Getting all the values from the server. Note that this could result in a
+     * lot of requests, and potentially violate your requests per second limit.
+     */
+    $all_values = $new_variable->get_values();
+    
+    /* If you want just the last 100 values you can use: */
+    $some_values = $new_variable->get_values(100);
+    
+
+Getting a group of Data sources
+--------------------------------
+
+If you want to get all your data sources you can a method on the ApiClient instance directly. This method return a Paginator object which you can use to iterate through all the items.
+
+.. code-block:: php
+    
+    /* Get all datasources */
+    $all_datasources = $api->get_datasources();
+    
+    /* Get the last five created datasources */
+    $some_datasources = $api->get_datasources(5);
+
+
+Getting a specific Data source
+-------------------------------
+
+Each data source is identified by an ID. A specific data source can be retrieved from the server using this ID.
+
+For example, if a data source has the id 51c99cfdf91b28459f976414, it can be retrieved as follows:
+
+
+.. code-block:: php
+
+    $my_specific_datasource = $api->get_datasource('51c99cfdf91b28459f976414');

@@ -53,7 +53,6 @@ class ServerBridge{
 
     public function get($path){
         $headers = $this->prepare_headers($this->token_header);
-        echo $this->base_url . $path."\n";
         $request = \Requests::get($this->base_url . $path, $headers);
         return json_decode($request->body, true);
     }
