@@ -1,7 +1,7 @@
 <?php
 namespace Ubidots;
 
-define('BASE_URL', 'http://app.ubidots.com/api/v1.6/'); 
+define('BASE_URL', 'http://things.ubidots.com/api/v1.6/'); 
 
 class ServerBridge{
     
