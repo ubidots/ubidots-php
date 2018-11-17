@@ -52,7 +52,7 @@ Given the instantiated variable, you can save a new value with the following lin
 
 .. code-block:: php
 
-    $new_value = $my_variable->save_value( array('value'=>10) );
+    $new_value = $my_variable->save_value( json_encode(array('value'=>10)) );
 
 You can also specify a timestamp (optional):
 
